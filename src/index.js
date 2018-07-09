@@ -1,4 +1,4 @@
-export function install(editor, params) {
+function install(editor, params) {
     
     const events = [
         'keydown',
@@ -11,4 +11,8 @@ export function install(editor, params) {
     ];
 
     editor.on(events.join(' '), () => editor.silent || params.enabled !== true);
+}
+
+export default {
+    install
 }
