@@ -1,5 +1,10 @@
-function install(editor, params) {
-    
+function install(editor, params = { enabled: true }) {
+    editor.bind('isreadonly');
+    editor.bind('readonly');
+
+    editor.on('isreadonly', () => params.enabled);
+    editor.trigger('readonly', enabled => params.enabled = enabled);
+
     const events = [
         'keydown',
         'nodetranslate',
