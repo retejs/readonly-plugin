@@ -3,7 +3,9 @@ function install(editor, params = { enabled: true }) {
     editor.bind('readonly');
 
     editor.on('isreadonly', () => params.enabled);
-    editor.trigger('readonly', enabled => params.enabled = enabled);
+    editor.on('readonly', enabled => {
+        params.enabled = enabled;
+    });
 
     const events = [
         'keydown',
