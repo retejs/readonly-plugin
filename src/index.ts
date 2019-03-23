@@ -1,4 +1,14 @@
-function install(editor, params = { enabled: true }) {
+import { NodeEditor, } from 'rete';
+import { Plugin } from 'rete/types/core/plugin';
+
+declare module 'rete/types/events' {
+    interface EventsTypes {
+        isreadonly: void;
+        readonly: boolean;
+    }
+}
+
+function install(editor: NodeEditor, params = { enabled: true }) {
     editor.bind('isreadonly');
     editor.bind('readonly');
 
@@ -17,9 +27,10 @@ function install(editor, params = { enabled: true }) {
         'noderemove'
     ];
 
-    editor.on(events.join(' '), () => editor.silent || params.enabled !== true);
+    editor.on(events.join(' ') as any, () => editor.silent || params.enabled !== true);
 }
 
 export default {
+    name: 'readonly',
     install
-}
+} as Plugin

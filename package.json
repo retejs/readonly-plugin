@@ -2,16 +2,24 @@
   "name": "rete-readonly-plugin",
   "version": "0.2.1",
   "description": "",
-  "main": "build/readonly-plugin.min.js",
+  "main": "build/readonly-plugin.common.js",
+  "module": "build/readonly-plugin.esm.js",
+  "types": "types/index.d.ts",
   "scripts": {
     "build": "rete --build rete.config.js",
     "build:dev": "rete --build rete.config.js --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "prebuild": "npm run lint && npm run types",
+    "lint": "tsc",
+    "types": "tsc src/index.ts --target es5 --declaration --outDir ./types --downlevelIteration --emitDeclarationOnly"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "rete": "^1.2.0-rc.9"
+  },
   "devDependencies": {
-    "rete-cli": "^0.3.0"
+    "rete-cli": "^0.6.0-rc.3",
+    "typescript": "^3.3.4000"
   }
 }
