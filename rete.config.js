@@ -1,4 +1,5 @@
 export default {
     input: 'src/index.ts',
-    name: 'ReadonlyPlugin'
+    name: 'ReadonlyPlugin',
+    globals: { 'rete': 'Rete' }
 }
