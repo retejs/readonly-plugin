@@ -1,5 +1,4 @@
 import { NodeEditor, } from 'rete';
-import { Plugin } from 'rete/types/core/plugin';
 
 declare module 'rete/types/events' {
     interface EventsTypes {
@@ -33,4 +32,4 @@ function install(editor: NodeEditor, params = { enabled: true }) {
 export default {
     name: 'readonly',
     install
-} as Plugin
+}

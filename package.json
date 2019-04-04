@@ -1,6 +1,6 @@
 {
   "name": "rete-readonly-plugin",
-  "version": "0.3.0-rc.1",
+  "version": "0.3.0",
   "description": "",
   "main": "build/readonly-plugin.common.js",
   "module": "build/readonly-plugin.esm.js",
