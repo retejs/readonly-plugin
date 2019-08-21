@@ -7,9 +7,11 @@ declare module 'rete/types/events' {
     }
 }
 
-function install(editor: NodeEditor, params = { enabled: true }) {
+function install(editor: NodeEditor, params: { enabled?: boolean }) {
     editor.bind('isreadonly');
     editor.bind('readonly');
+
+    if (params.enabled !== false) params.enabled = true;
 
     editor.on('isreadonly', () => params.enabled);
     editor.on('readonly', enabled => {
