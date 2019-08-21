@@ -20,10 +20,13 @@
     "url": "https://github.com/retejs/readonly-plugin.git"
   },
   "dependencies": {
-    "rete": "^1.2.0-rc.9"
+    "rete": "^1.4.1",
+    "rete-connection-plugin": "^0.8.2"
   },
   "devDependencies": {
-    "rete-cli": "^0.6.0-rc.3",
-    "typescript": "^3.3.4000"
+    "@babel/preset-typescript": "^7.3.3",
+    "rete-cli": "^0.6.0",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
   }
 }
