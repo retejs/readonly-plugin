@@ -1,4 +1,5 @@
-import { NodeEditor, } from 'rete';
+/// <reference types="rete-connection-plugin" />
+import { NodeEditor } from 'rete';
 
 declare module 'rete/types/events' {
     interface EventsTypes {
@@ -18,17 +19,16 @@ function install(editor: NodeEditor, params: { enabled?: boolean }) {
         params.enabled = enabled;
     });
 
-    const events = [
+    editor.on([
         'keydown',
         'nodetranslate',
         'nodeselect',
         'connectioncreate',
         'connectionremove',
         'nodecreate',
-        'noderemove'
-    ];
-
-    editor.on(events.join(' ') as any, () => editor.silent || params.enabled !== true);
+        'noderemove',
+        'connectionpick'
+    ], () => editor.silent || params.enabled !== true);
 }
 
 export default {
