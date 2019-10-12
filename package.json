@@ -1,6 +1,6 @@
 {
   "name": "rete-readonly-plugin",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "",
   "main": "build/readonly-plugin.common.js",
   "module": "build/readonly-plugin.esm.js",
@@ -19,12 +19,14 @@
     "type": "git",
     "url": "https://github.com/retejs/readonly-plugin.git"
   },
-  "dependencies": {
+  "peerDependencies": {
     "rete": "^1.4.1",
     "rete-connection-plugin": "^0.8.2"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.3.3",
+    "rete": "^1.4.1",
+    "rete-connection-plugin": "^0.8.2",
     "rete-cli": "^0.6.0",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
