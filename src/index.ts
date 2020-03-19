@@ -8,27 +8,35 @@ declare module 'rete/types/events' {
     }
 }
 
-function install(editor: NodeEditor, params: { enabled?: boolean }) {
+type ReteEvents = Array<'keydown' | 'nodetranslate' | 'nodeselect' | 'connectioncreate' | 'connectionremove' | 'nodecreate' | 'noderemove' | 'connectionpick'>
+
+function install(editor: NodeEditor, params: { enabled?: boolean, excludedEvents?: ReteEvents }) {
     editor.bind('isreadonly');
     editor.bind('readonly');
 
     if (params.enabled !== false) params.enabled = true;
+
+    const excludedEvents = params.excludedEvents || [];
 
     editor.on('isreadonly', () => params.enabled);
     editor.on('readonly', enabled => {
         params.enabled = enabled;
     });
 
-    editor.on([
+    let events: ReteEvents = [
         'keydown',
-        'nodetranslate',
-        'nodeselect',
         'connectioncreate',
+        'connectionpick',
         'connectionremove',
         'nodecreate',
         'noderemove',
-        'connectionpick'
-    ], () => editor.silent || params.enabled !== true);
+        'nodeselect',
+        'nodetranslate'
+    ];
+    
+    events = events.filter(evtName => excludedEvents.indexOf(evtName) < 0);
+
+    editor.on(events, () => editor.silent || params.enabled !== true);
 }
 
 export default {
