@@ -1,5 +1,4 @@
 {
-    "extends": "rete-cli/tsconfig.json",
     "compilerOptions": {
         "target": "es5"
     },

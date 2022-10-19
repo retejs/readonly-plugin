@@ -6,12 +6,10 @@
   "module": "build/readonly-plugin.esm.js",
   "types": "types/index.d.ts",
   "scripts": {
-    "build": "rete --build rete.config.js",
-    "build:dev": "rete --build rete.config.js --watch",
+    "build": "rete build -c rete.config.ts",
+    "build:dev": "rete build -c rete.config.ts --watch",
     "prepublishOnly": "npm run build",
-    "prebuild": "npm run lint && npm run types",
-    "lint": "tsc",
-    "types": "tsc src/index.ts --target es5 --declaration --outDir ./types --downlevelIteration --emitDeclarationOnly"
+    "lint": "rete lint"
   },
   "author": "Vitaliy Stoliarov",
   "license": "MIT",
@@ -21,14 +19,14 @@
   },
   "peerDependencies": {
     "rete": "^1.4.1",
+    "rete-area-plugin": "0.2.1",
     "rete-connection-plugin": "^0.8.2"
   },
   "devDependencies": {
-    "@babel/preset-typescript": "^7.3.3",
-    "rete": "^1.4.1",
-    "rete-connection-plugin": "^0.8.2",
-    "rete-cli": "^0.6.0",
-    "ts-node": "^8.3.0",
-    "typescript": "^3.5.3"
+    "rete": "file:../rete/rete-2.0.0-beta.1.tgz",
+    "rete-area-plugin": "file:../area-plugin/rete-area-plugin-0.2.1.tgz",
+    "rete-cli": "1.0.0-beta.10",
+    "rete-connection-plugin": "file:../connection-plugin/rete-connection-plugin-0.9.0.tgz",
+    "typescript": "4.8.4"
   }
 }
