@@ -1,39 +1,27 @@
-// /// <reference types="rete-connection-plugin" />
-// import { NodeEditor } from 'rete';
+import { BaseSchemes, Root, Scope } from 'rete'
+import { Area2D } from 'rete-area-plugin'
+import { Connection } from 'rete-connection-plugin'
 
-// declare module 'rete/types/events' {
-//     interface EventsTypes {
-//         isreadonly: void;
-//         readonly: boolean;
-//     }
-// }
+console.log('readonly')
 
-// function install(editor: NodeEditor, params: { enabled?: boolean }) {
-//     editor.bind('isreadonly');
-//     editor.bind('readonly');
+export class ReadonlyPlugin<Schemes extends BaseSchemes> {
+    root = new Scope<never, [Root<Schemes>]>('readonly')
+    area = new Scope<never, [Area2D<Schemes>, Root<Schemes>]>('readonly')
+    connection = new Scope<never, [Connection, Root<Schemes>]>('readonly')
 
-//     if (params.enabled !== false) params.enabled = true;
-
-//     editor.on('isreadonly', () => params.enabled);
-//     editor.on('readonly', enabled => {
-//         params.enabled = enabled;
-//     });
-
-//     editor.on([
-//         'keydown',
-//         'nodetranslate',
-//         'nodeselect',
-//         'connectioncreate',
-//         'connectionremove',
-//         'nodecreate',
-//         'noderemove',
-//         'connectionpick'
-//     ], () => editor.silent || params.enabled !== true);
-// }
-
-// export default {
-//     name: 'readonly',
-//     install
-// }
-
-export * from './next'
+    constructor() {
+        this.root.addPipe(context => {
+            if (context.type === 'nodecreate') return
+            if (context.type === 'connectioncreate') return
+            return context
+        })
+        this.area.addPipe(context => {
+            if (context.type === 'nodetranslate') return
+            return context
+        })
+        this.connection.addPipe(context => {
+            if (context.type === 'connectionpick') return
+            return context
+        })
+    }
+}
