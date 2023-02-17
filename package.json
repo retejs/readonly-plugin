@@ -4,8 +4,6 @@
   "description": "",
   "scripts": {
     "build": "rete build -c rete.config.ts",
-    "build:dev": "rete build -c rete.config.ts --watch",
-    "prepublishOnly": "npm run build",
     "lint": "rete lint"
   },
   "author": "Vitaliy Stoliarov",
@@ -22,7 +20,7 @@
   "devDependencies": {
     "rete": "file:../rete/dist/package.tgz",
     "rete-area-plugin": "file:../area-plugin/dist/package.tgz",
-    "rete-cli": "^1.0.0-beta.19",
+    "rete-cli": "^1.0.0-beta.24",
     "rete-connection-plugin": "file:../connection-plugin/dist/package.tgz",
     "typescript": "4.8.4"
   }
