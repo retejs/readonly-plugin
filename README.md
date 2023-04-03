@@ -1,21 +1,22 @@
-Rete readonly plugin
+Rete.js Readonly plugin
 ====
-#### Rete.js plugin
+[![Made in Ukraine](https://img.shields.io/badge/made_in-ukraine-ffd700.svg?labelColor=0057b7)](https://stand-with-ukraine.pp.ua)
+[![Discord](https://img.shields.io/discord/1081223198055604244?color=%237289da&label=Discord)](https://discord.gg/cxSFkPZdsV)
 
-```js
-import ReadonlyPlugin from 'rete-readonly-plugin';
+**Rete.js plugin**
 
- // the plugin creates a 'readonly' and 'isreadonly' events
+## Key features
 
-editor.use(ReadonlyPlugin, { enabled: false }); // enabled is true by default
+- **Prevent changes**: provides the ability to set the editor as readonly, preventing any changes to the graph
 
-this.emitter.exist('isreadonly') // check if event exist, i.e. plugin installed
+## Getting Started
 
-let readonlyEnabled = editor.trigger('isreadonly'); // get readonly state
+Please refer to the [guide](https://retejs.org/docs/guides/readonly) and [example](https://retejs.org/examples/readonly) using this plugin
 
-editor.trigger('readonly', readonlyEnabled); // enable or disable readonly
+## Contribution
 
-editor.on('readonly', () => {}) // side effects when turning on / off the read-only mode
-```
+Please refer to the [Contribution](https://retejs.org/docs/contribution) guide
 
+## License
 
+[MIT](https://github.com/retejs/readonly-plugin/blob/master/LICENSE)
