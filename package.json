@@ -1,6 +1,6 @@
 {
   "name": "rete-readonly-plugin",
-  "version": "2.0.0-beta.4",
+  "version": "2.0.0-beta.5",
   "description": "",
   "scripts": {
     "build": "rete build -c rete.config.ts",
@@ -22,9 +22,9 @@
     "url": "https://github.com/retejs/readonly-plugin/issues"
   },
   "peerDependencies": {
-    "rete": "^1.4.1",
-    "rete-area-plugin": "0.2.1",
-    "rete-connection-plugin": "^0.8.2"
+    "rete": "^2.0.0-beta.1",
+    "rete-area-plugin": "^2.0.0-beta.1",
+    "rete-connection-plugin": "^2.0.0-beta.1"
   },
   "devDependencies": {
     "rete": "^2.0.0-beta.1",
