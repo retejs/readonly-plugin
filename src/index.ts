@@ -10,12 +10,12 @@ import { Connection } from 'rete-connection-plugin'
  * @listens nodetranslate
  * @listens connectionpick
  * @example const readonly = new ReadonlyPlugin<Schemes>();
-editor.use(readonly.root);
-editor.use(area);
-area.use(readonly.area);
-area.use(render);
-connection.use(readonly.connection);
-area.use(connection);
+ *editor.use(readonly.root);
+ *editor.use(area);
+ *area.use(readonly.area);
+ *area.use(render);
+ *connection.use(readonly.connection);
+ *area.use(connection);
  */
 export class ReadonlyPlugin<Schemes extends BaseSchemes> {
   root = new Scope<never, [Root<Schemes>]>('readonly')
