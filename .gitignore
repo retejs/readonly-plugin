@@ -5,3 +5,6 @@ npm-debug.log
 dist
 types
 docs
+/coverage
+.rete-cli
+.sonar
